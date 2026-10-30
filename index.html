@@ -1,47 +1,105 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="theme-color" content="#faf8f5" />
-<meta name="description" content="천안 오늘 뭐 먹지? 지역과 취향을 고르고 랜덤 메뉴를 추천받아 보세요." />
-<title>오늘 뭐 먹지? — 천안 랜덤 픽</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Nunito:wght@500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap');
-:root{--ink:#24232a;--sub:#817c85;--line:#eae5e6;--paper:#faf8f5;--white:#fff;--pink:#fe698b;--peach:#ffb68c;--purple:#8f83e6;--mint:#bfe8d7;--shadow:0 15px 45px rgba(68,43,51,.065)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:'DM Sans','Noto Sans KR',sans-serif;-webkit-font-smoothing:antialiased}button,input,a{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #8f83e6;outline-offset:3px}button:disabled{cursor:not-allowed;opacity:.6}.shell{max-width:1190px;margin:auto;padding:0 28px}.topbar{height:88px;display:flex;align-items:center;justify-content:space-between}.brand{display:inline-flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink);font-weight:900;font-size:19px;letter-spacing:-.9px}.brand-mark{width:36px;height:36px;display:grid;place-items:center;background:#ffdae3;border-radius:12px;font-size:20px;transform:rotate(-7deg)}.top-right{display:flex;align-items:center;gap:10px}.pill{border:1px solid var(--line);background:white;border-radius:50px;padding:11px 16px;color:#605d65;font-size:12px;font-weight:800}.live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#65cba3;margin-right:7px}.hero{position:relative;display:grid;grid-template-columns:1.02fr .98fr;min-height:450px;align-items:center;gap:20px;padding:29px 0 42px}.eyebrow{display:inline-block;padding:9px 15px;background:#fff1e7;border-radius:30px;color:#e87d55;font-size:12px;font-weight:900;letter-spacing:1.6px}.hero h1{font-size:clamp(43px,5.35vw,73px);line-height:1.22;margin:22px 0 20px;font-weight:900;letter-spacing:-4px;word-break:keep-all}.hero h1 .accent{color:var(--pink);position:relative;white-space:nowrap}.hero h1 .accent:after{content:'';position:absolute;left:5px;bottom:-7px;width:96%;height:11px;border-bottom:5px solid #f9bd90;border-radius:50%}.hero p{color:#85808a;font-size:15px;line-height:1.85;margin:0;word-break:keep-all}.hero-art{height:390px;position:relative;display:grid;place-items:center}.blob{position:absolute;width:355px;height:330px;background:#ffe9df;border-radius:44% 56% 47% 53% / 57% 40% 60% 43%;transform:rotate(-17deg)}.blob2{position:absolute;width:260px;height:260px;right:30px;top:24px;border:2px dashed #f5bdba;border-radius:50%;transform:rotate(20deg)}.dish{position:relative;width:285px;height:285px;border-radius:50%;background:#fff;box-shadow:0 24px 38px #cf9c8a32,inset 0 0 0 13px #fff,inset 0 0 0 16px #f6e4e0;display:grid;place-items:center;transform:rotate(-12deg);animation:float 5s ease-in-out infinite}.dish .food{font-size:144px;filter:drop-shadow(5px 10px 4px #a65f4522)}.bubble{position:absolute;background:white;box-shadow:var(--shadow);border:1px solid #f7edef;border-radius:18px;padding:15px 18px;font-size:13px;font-weight:900;transform:rotate(8deg)}.bubble.one{top:54px;left:6px}.bubble.two{bottom:55px;right:-4px;transform:rotate(-7deg)}.spark{position:absolute;font-size:27px;color:#f3b55b}.spark.a{top:16px;left:90px}.spark.b{right:18px;bottom:120px}@keyframes float{50%{transform:translateY(-12px) rotate(-5deg)}}.section-head{display:flex;justify-content:space-between;align-items:end;gap:10px;margin-bottom:22px}.kicker{font-size:11px;font-weight:900;letter-spacing:2px;color:#ef8399}.section-head h2{font-size:25px;letter-spacing:-1.1px;margin:6px 0 0}.tiny{font-size:12px;color:#9c98a0}.workspace{display:grid;grid-template-columns:1fr 0.92fr;gap:22px;align-items:stretch;padding-bottom:26px}.panel{border:1px solid #f0eaeb;border-radius:27px;background:white;box-shadow:var(--shadow);padding:30px;min-width:0}.filter-title{font-size:14px;font-weight:900;display:flex;align-items:center;gap:9px;margin-bottom:15px}.filter-title .num{background:#fff0f4;color:#f1718f;width:25px;height:25px;display:grid;place-items:center;border-radius:8px;font-size:12px}.chips{display:flex;gap:9px;flex-wrap:wrap}.chip{border:1px solid #ebe5e7;background:#fff;border-radius:12px;padding:12px 16px;color:#79737d;font-size:13px;font-weight:800;transition:.18s}.chip:hover{border-color:#f79eb1;transform:translateY(-2px)}.chip.active{color:#ec577a;background:#fff0f4;border-color:#ffb6c7;box-shadow:0 4px 10px #ffb6c72b}.filter-block{margin-bottom:26px}.filter-block:last-child{margin-bottom:0}.slider-line{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}.value-tag{background:#f6f3ff;color:#8777cd;border-radius:9px;padding:7px 11px;font-weight:900;font-size:12px}input[type=range]{width:100%;accent-color:var(--pink);cursor:pointer;height:5px}.range-ends{display:flex;justify-content:space-between;color:#aaa3ac;font-size:11px;margin-top:8px}.result{background:linear-gradient(155deg,#ffedf1 0%,#fff8f0 100%);border:1px solid #ffeaeb;border-radius:27px;padding:28px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:500px;text-align:center;position:relative;overflow:hidden}.result:before{content:'✳';position:absolute;left:20px;top:20px;color:#f2afb7;font-size:44px}.result:after{content:'✦';position:absolute;right:29px;bottom:34px;color:#edb36f;font-size:34px}.result-label{font-size:11px;letter-spacing:2px;color:#d77b91;font-weight:900;margin-bottom:20px}.result-art{width:170px;height:170px;border-radius:50%;background:#fff;box-shadow:0 15px 27px #c78f8e24;display:grid;place-items:center;font-size:95px;transform:rotate(-8deg);margin-bottom:20px;transition:transform .3s}.result-art.pop{animation:pop .5s cubic-bezier(.16,1.25,.36,1)}@keyframes pop{0%{transform:scale(.6) rotate(-30deg);opacity:.4}75%{transform:scale(1.15) rotate(6deg)}100%{transform:scale(1) rotate(-8deg);opacity:1}}.result h3{font-size:29px;letter-spacing:-1.4px;margin:1px 0 9px}.result-desc{font-size:13px;color:#887f87;line-height:1.65;max-width:300px;min-height:42px;margin:0 0 15px}.meta{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin-bottom:19px}.meta span{background:#fff9f8;border:1px solid #fae2e4;border-radius:30px;padding:8px 11px;font-weight:800;color:#9d747e;font-size:11px}.result-actions{width:100%;max-width:285px;display:grid;grid-template-columns:1fr 1fr;gap:8px}.link-btn{border-radius:12px;padding:13px 10px;background:#fff;color:#6e626a;border:1px solid #f1dbdf;text-decoration:none;font-weight:900;font-size:12px;transition:.15s}.link-btn:hover{transform:translateY(-2px);box-shadow:0 5px 15px #bb798326}.main-action{width:100%;border:0;border-radius:16px;background:linear-gradient(100deg,#ff7394,#ff967d);color:#fff;box-shadow:0 12px 24px #f97b9440;padding:19px;font-size:16px;font-weight:900;transition:transform .2s,box-shadow .2s;display:flex;justify-content:center;align-items:center;gap:10px}.main-action:hover{transform:translateY(-2px);box-shadow:0 16px 28px #f97b9455}.main-action:active{transform:scale(.98)}.action-wrap{margin:5px 0 45px;max-width:565px}.action-hint{text-align:center;color:#a8a1aa;font-size:12px;margin-top:12px}.bottom-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding-bottom:35px}.mini-panel{background:white;border:1px solid #f0eaeb;border-radius:22px;padding:23px 26px;min-height:175px}.mini-panel h4{margin:0 0 13px;font-size:15px;letter-spacing:-.5px}.history{display:flex;gap:8px;flex-wrap:wrap}.history-item{border:1px solid #f0e9e9;background:#faf8f8;color:#665d65;padding:9px 12px;border-radius:10px;font-weight:800;font-size:12px}.empty{color:#b3acb3;font-size:12px;line-height:1.7}.tip{color:#948c95;font-size:13px;line-height:1.8;margin:0}.footer{border-top:1px solid #eee8e8;padding:24px 0 34px;color:#aaa1aa;display:flex;justify-content:space-between;gap:12px;font-size:11px}.toast{position:fixed;left:50%;bottom:27px;transform:translate(-50%,30px);background:#302935;color:#fff;padding:13px 19px;border-radius:30px;font-weight:800;font-size:12px;opacity:0;pointer-events:none;transition:.25s;z-index:5}.toast.show{opacity:1;transform:translate(-50%,0)}@media(max-width:850px){.hero{grid-template-columns:1fr 0.8fr;min-height:360px}.hero h1{font-size:51px}.hero-art{height:300px}.blob{width:265px;height:250px}.blob2{width:210px;height:210px}.dish{width:210px;height:210px}.dish .food{font-size:106px}.bubble{padding:10px;font-size:11px}.workspace{grid-template-columns:1fr 1fr}.panel{padding:23px}.result{padding:20px}}@media(max-width:670px){.shell{padding:0 18px}.topbar{height:72px}.brand{font-size:16px}.pill{font-size:10px;padding:9px 12px}.hero{grid-template-columns:1fr;min-height:0;padding:23px 0 25px;gap:0}.hero h1{font-size:clamp(42px,11vw,58px);letter-spacing:-2.5px;margin:18px 0 16px}.hero p{font-size:13px}.hero-art{height:200px;margin:0}.blob{width:210px;height:175px}.blob2{width:145px;height:145px;right:16%}.dish{width:150px;height:150px}.dish .food{font-size:73px}.bubble.one{top:17px;left:9%}.bubble.two{bottom:14px;right:8%}.spark{font-size:18px}.workspace,.bottom-grid{grid-template-columns:1fr}.panel{padding:23px}.result{min-height:410px;padding:30px 20px}.result-art{height:140px;width:140px;font-size:76px}.result h3{font-size:27px}.section-head h2{font-size:23px}.action-wrap{margin:19px 0 34px;max-width:100%}.bottom-grid{gap:13px}.footer{flex-direction:column}.chip{padding:11px 13px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#102f2c">
+  <meta name="description" content="천안, 일상이 웰니스가 되는 도시 — 원본 10장 슬라이드를 충실하게 담은 인터랙티브 웹 프레젠테이션">
+  <title>천안, 일상이 웰니스가 되는 도시 | 인터랙티브 프레젠테이션</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" as="image" href="assets/slide-01.webp">
+  <link rel="stylesheet" href="style.css">
+  <script src="slides-data.js" defer></script>
+  <script src="app.js" defer></script>
 </head>
 <body>
-<div class="shell"><header class="topbar"><a class="brand" href="./index.html"><span class="brand-mark">🍡</span> 천안 뭐먹지<span style="color:#fd7793">.</span></a><div class="top-right"><span class="pill"><span class="live-dot"></span>오늘의 랜덤 맛집</span></div></header>
-<section class="hero"><div><span class="eyebrow">CHEONAN FOOD PICKER ✳</span><h1>오늘 뭐 먹지<span style="color:#ff9c80">?</span><br><span class="accent">고민 끝!</span> 🍴</h1><p>점심, 저녁, 술 한잔, 달콤한 디저트까지!<br>취향만 고르면 오늘의 메뉴를 귀엽게 골라드려요.</p></div><div class="hero-art" aria-hidden="true"><div class="blob"></div><div class="blob2"></div><div class="dish"><span class="food">🍝</span></div><div class="bubble one">💖 오늘의 행복 한 입</div><div class="bubble two">YUMMY! ✨</div><span class="spark a">✦</span><span class="spark b">✳</span></div></section>
-<div class="section-head"><div><span class="kicker">01 · MAKE YOUR CHOICE</span><h2>오늘의 취향을 골라봐요 ✨</h2></div><span class="tiny">선택은 언제든 바꿀 수 있어요</span></div>
-<main class="workspace"><section class="panel" aria-label="추천 필터"><div class="filter-block"><div class="filter-title"><span class="num">1</span> 어디에서 먹을까요?</div><div class="chips" id="areas" role="group" aria-label="천안 지역"><button class="chip active" data-value="전체" aria-pressed="true">📍 천안 전체</button><button class="chip" data-value="불당동" aria-pressed="false">불당동</button><button class="chip" data-value="두정동" aria-pressed="false">두정동</button><button class="chip" data-value="신부동" aria-pressed="false">신부동</button><button class="chip" data-value="성정동" aria-pressed="false">성정동</button><button class="chip" data-value="쌍용동" aria-pressed="false">쌍용동</button><button class="chip" data-value="백석동" aria-pressed="false">백석동</button><button class="chip" data-value="안서동" aria-pressed="false">안서동</button></div></div>
-<div class="filter-block"><div class="filter-title"><span class="num">2</span> 어떤 분위기인가요?</div><div class="chips" id="categories" role="group" aria-label="음식 종류"><button class="chip active" data-value="전체" aria-pressed="true">🎲 아무거나</button><button class="chip" data-value="식사" aria-pressed="false">🍚 맛집</button><button class="chip" data-value="술집" aria-pressed="false">🍻 술집</button><button class="chip" data-value="카페" aria-pressed="false">☕ 카페</button><button class="chip" data-value="디저트" aria-pressed="false">🍰 디저트</button></div></div>
-<div class="filter-block"><div class="slider-line"><div class="filter-title" style="margin:0"><span class="num">3</span> 1인 예상 예산</div><span class="value-tag" id="budgetLabel">30,000원 이하</span></div><input id="budget" aria-label="최대 예산" type="range" min="10000" max="60000" step="5000" value="30000"><div class="range-ends"><span>10,000원</span><span>60,000원+</span></div></div>
-<div class="filter-block"><div class="slider-line"><div class="filter-title" style="margin:0"><span class="num">4</span> 얼마나 모험해볼까요?</div><span class="value-tag" id="moodLabel">적당히 새롭게 ✨</span></div><input id="mood" aria-label="새로운 메뉴 선호도" type="range" min="0" max="2" step="1" value="1"><div class="range-ends"><span>익숙한 게 좋아</span><span>새로운 도전!</span></div></div></section>
-<section class="result" id="result" aria-live="polite"><div class="result-label" id="resultLabel">✦ TODAY'S LUCKY PICK ✦</div><div class="result-art" id="resultArt">🍲</div><h3 id="resultTitle">오늘의 메뉴는?</h3><p class="result-desc" id="resultDesc">아래 핑크 버튼을 눌러 오늘의 행운 메뉴를 만나보세요!</p><div class="meta" id="meta"><span>💛 천안에서 즐기기</span><span>🎲 랜덤 추천</span></div><div class="result-actions"><a class="link-btn" id="naverLink" href="https://map.naver.com" target="_blank" rel="noopener noreferrer">🗺️ 네이버 지도</a><button class="link-btn" id="copyBtn" type="button">🔗 결과 복사</button></div></section></main>
-<div class="action-wrap"><button class="main-action" type="button" id="spinBtn">🎲 운명의 메뉴 뽑기 <span aria-hidden="true">→</span></button><div class="action-hint">클릭 한 번이면 고민 끝! · 맘에 안 들면 다시 뽑기</div></div>
-<section class="bottom-grid"><article class="mini-panel"><h4>🕘 방금 뽑은 메뉴</h4><div id="history" class="history"><span class="empty">아직 추천 기록이 없어요. 첫 메뉴를 뽑아볼까요?</span></div></article><article class="mini-panel"><h4>💌 작은 안내</h4><p class="tip">이 페이지는 실제 업소 목록이 아닌 <strong>메뉴 랜덤 추천기</strong>예요. 결과의 지도 버튼을 누르면 선택 지역의 메뉴를 검색할 수 있어요. 방문 전 영업시간과 가격을 확인해 주세요.</p></article></section>
-<footer class="footer"><span>© 2026 Cheonan What to Eat? · Made with 💗</span><span>한 파일로 작동하는 GitHub Pages 웹앱</span></footer></div><div class="toast" id="toast" role="status"></div>
-<script>
-(()=>{'use strict';
-const menu=[
-['김치찌개','🍲','식사',10000,0,'뜨끈한 국물에 밥 한 공기, 실패 없는 선택!'],['제육볶음','🍚','식사',11000,0,'매콤달콤한 밥도둑이 당기는 날'],['돈카츠','🍱','식사',14000,0,'바삭한 한 입으로 기분 전환!'],['칼국수','🍜','식사',10000,0,'후루룩, 속까지 따뜻해지는 메뉴'],['국밥','🥘','식사',11000,0,'든든하게 채우는 한 끼'],['비빔밥','🥗','식사',11000,0,'알록달록 맛있고 깔끔한 한 끼'],['냉면','🍜','식사',12000,0,'시원하고 깔끔하게 한 그릇'],['초밥','🍣','식사',19000,1,'오늘은 조금 더 특별한 식사'],['파스타','🍝','식사',18000,1,'분위기까지 챙기는 기분 좋은 메뉴'],['마라탕','🍲','식사',16000,1,'얼얼한 매력에 풍덩 빠져봐요'],['쌀국수','🍜','식사',13000,1,'향긋한 국물로 산뜻하게'],['수제버거','🍔','식사',16000,1,'두툼하고 맛있는 한 입'],['타코','🌮','식사',18000,2,'오늘은 이국적인 한 입 어때요?'],['인도 커리','🍛','식사',20000,2,'향신료와 난의 매력에 도전!'],['샤브샤브','🥬','식사',23000,1,'채소와 고기를 보글보글'],['양꼬치','🍢','술집',26000,2,'꼬치 하나에 대화가 술술'],['삼겹살','🥓','술집',28000,0,'지글지글, 오늘의 행복 충전'],['치킨과 맥주','🍗','술집',25000,0,'바삭한 치킨과 시원한 한 잔'],['전과 막걸리','🥞','술집',23000,0,'고소한 전과 함께하는 밤'],['이자카야 꼬치','🍢','술집',30000,1,'작은 접시로 즐기는 분위기'],['곱창구이','🥩','술집',35000,1,'고소한 매력이 가득한 저녁'],['하이볼 바','🥃','술집',30000,2,'상큼한 한 잔이 어울리는 밤'],['와인 바','🍷','술집',45000,2,'조금 특별하게 마무리하는 하루'],['맥주 펍','🍺','술집',25000,1,'가볍게 한 잔, 편안한 수다'],['라테 카페','☕','카페',7000,0,'포근한 커피 한 잔의 여유'],['핸드드립 카페','☕','카페',8000,2,'커피 향을 천천히 즐기는 시간'],['브런치 카페','🥐','카페',19000,1,'느긋하게 즐기는 작은 휴식'],['말차 카페','🍵','카페',9000,2,'쌉싸름하고 부드러운 녹색 충전'],['뷰 좋은 카페','🌿','카페',10000,1,'오늘은 공간까지 즐겨요'],['베이커리 카페','🥖','카페',14000,0,'갓 구운 빵 냄새를 따라'],['케이크','🍰','디저트',9000,0,'달콤한 한 조각의 위로'],['크로플','🧇','디저트',11000,1,'바삭하고 달콤한 조합'],['빙수','🍧','디저트',14000,0,'시원하게 기분을 리셋'],['마카롱','🧁','디저트',11000,1,'작고 귀여운 달콤함'],['젤라토','🍨','디저트',8000,2,'쫀득한 디저트 산책'],['도넛','🍩','디저트',9000,0,'기분 좋은 설탕 충전']
-].map(([name,emoji,category,price,adventure,description])=>({name,emoji,category,price,adventure,description}));
-let state={area:'전체',category:'전체',budget:30000,mood:1},current=null,history=[],busy=false;const $=id=>document.getElementById(id);const format=n=>n.toLocaleString('ko-KR')+'원';
-function chips(id,key){$(id).addEventListener('click',e=>{let b=e.target.closest('button[data-value]');if(!b)return;state[key]=b.dataset.value;$(id).querySelectorAll('button').forEach(x=>{const on=x===b;x.classList.toggle('active',on);x.setAttribute('aria-pressed',String(on))})})}
-chips('areas','area');chips('categories','category');
-$('budget').addEventListener('input',e=>{state.budget=Number(e.target.value);$('budgetLabel').textContent=state.budget===60000?'60,000원+':format(state.budget)+' 이하'});
-$('mood').addEventListener('input',e=>{state.mood=Number(e.target.value);$('moodLabel').textContent=['익숙하고 든든하게 💛','적당히 새롭게 ✨','과감하게 도전 🚀'][state.mood]});
-function pool(){let all=menu.filter(x=>(state.category==='전체'||x.category===state.category)&&x.price<=state.budget);if(!all.length)return [];let weights=all.map(x=>({item:x,weight:state.mood===0?(x.adventure===0?5:x.adventure===1?2:1):state.mood===2?(x.adventure===2?5:x.adventure===1?3:1):3}));return weights}
-function pick(weights){let total=weights.reduce((s,x)=>s+x.weight,0),n=Math.random()*total;for(const x of weights){n-=x.weight;if(n<=0)return x.item}return weights.at(-1).item}
-function areaName(){return state.area==='전체'?'천안시':`천안 ${state.area}`}
-function mapUrl(x){return 'https://map.naver.com/p/search/'+encodeURIComponent(areaName()+' '+x.name)}
-function show(x){current={...x,area:areaName()};$('resultArt').textContent=x.emoji;$('resultArt').classList.remove('pop');void $('resultArt').offsetWidth;$('resultArt').classList.add('pop');$('resultTitle').textContent=x.name;$('resultDesc').textContent=x.description;$('meta').replaceChildren(...[`📍 ${areaName()}`,`💸 약 ${format(x.price)}`,`✨ ${x.category}`].map(s=>{let el=document.createElement('span');el.textContent=s;return el}));$('naverLink').href=mapUrl(x);$('resultLabel').textContent='✦ YOUR LUCKY PICK ✦';history.unshift(current);history=history.slice(0,5);$('history').replaceChildren(...history.map(h=>{let b=document.createElement('button');b.className='history-item';b.textContent=`${h.emoji} ${h.name}`;b.title=h.area+' · 네이버 지도에서 검색';b.onclick=()=>window.open('https://map.naver.com/p/search/'+encodeURIComponent(h.area+' '+h.name),'_blank','noopener,noreferrer');return b}))}
-function toast(s){$('toast').textContent=s;$('toast').classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>$('toast').classList.remove('show'),2200)}
-$('spinBtn').addEventListener('click',()=>{if(busy)return;let options=pool();if(!options.length){toast('예산이나 카테고리를 바꿔주세요');return}busy=true;let btn=$('spinBtn');btn.disabled=true;btn.textContent='✨ 맛있는 운명 찾는 중...';let ticks=0, timer=setInterval(()=>{let x=pick(options);$('resultArt').textContent=x.emoji;$('resultTitle').textContent=x.name;ticks++;if(ticks>=9){clearInterval(timer);let candidates=options.filter(x=>!current||x.item.name!==current.name);let chosen=pick(candidates.length?candidates:options);show(chosen);btn.disabled=false;btn.innerHTML='🎲 한 번 더 뽑기 <span aria-hidden="true">→</span>';busy=false}},75)});
-$('copyBtn').addEventListener('click',async()=>{if(!current){toast('먼저 메뉴를 뽑아주세요!');return}let str=`오늘의 천안 랜덤 픽 🎲\n${current.area} · ${current.name} ${current.emoji}\n${mapUrl(current)}`;try{await navigator.clipboard.writeText(str);toast('추천 결과를 복사했어요 💕')}catch(e){const t=document.createElement('textarea');t.value=str;document.body.appendChild(t);t.select();try{document.execCommand('copy');toast('추천 결과를 복사했어요 💕')}catch(e2){toast('복사할 수 없어요')}t.remove()}});
-})();
-</script>
+  <a href="#presentation" class="skip-link">프레젠테이션으로 바로가기</a>
+  <header class="site-header">
+    <div class="header-main">
+      <a class="brand" href="#slide-1" aria-label="천안 웰니스 프레젠테이션 첫 장으로 이동">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 28 28" fill="none"><path d="M5 18c3-7 5-10 8-10 4 0 4 9 8 9 1 0 2-1 3-2" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="21.5" cy="7" r="2.5" fill="currentColor"/></svg></span>
+        <span class="brand-text"><strong>CHEONAN</strong><small>WELLNESS 2026</small></span>
+      </a>
+      <div class="header-label">일상이 웰니스가 되는 도시 <span class="header-divider">/</span> 2026.10 공개자료 기반</div>
+      <div class="header-actions">
+        <button class="icon-button compact" id="overviewOpen" aria-label="전체 슬라이드 보기" title="전체 보기 (O)"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></button>
+        <button class="header-notes" id="notesOpen"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg><span>발표 자료 · 출처</span></button>
+      </div>
+    </div>
+    <nav class="chapter-nav" id="chapterNav" aria-label="슬라이드별 탐색"></nav>
+  </header>
+  <main class="main-content" id="presentation">
+    <div class="presentation-layout">
+      <div class="section-strap">
+        <div class="strap-left"><span class="small-dot"></span><span id="sectionEyebrow">INTRODUCTION</span><span class="strap-line"></span><span id="sectionTag" class="section-tag">2026.10.30</span></div>
+        <div class="strap-right"><span>슬라이드의 항목을 클릭해 상세 내용을 살펴보세요</span><kbd>←</kbd><kbd>→</kbd></div>
+      </div>
+      <section class="stage-panel" aria-label="원본 프레젠테이션 슬라이드">
+        <div class="stage-screen" id="stageScreen" tabindex="0" aria-label="슬라이드 화면. 방향키로 페이지 이동, 확대 버튼으로 확대 가능">
+          <img id="slideImage" src="assets/slide-01.webp" alt="슬라이드 1: 천안, 일상이 웰니스가 되는 도시" draggable="false" width="2561" height="1440">
+          <div class="stage-hotspots" id="hotspots" aria-label="슬라이드 내부 상세 설명을 여는 영역"></div>
+          <div class="slide-flash" id="slideFlash" aria-hidden="true"></div>
+          <div class="stage-counter" aria-hidden="true"><span id="screenPage">01</span><span class="stage-counter-slash">/</span>10</div>
+          <button class="zoom-corner" id="zoomOpen" title="슬라이드 확대" aria-label="현재 슬라이드 확대해서 보기"><svg viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg><span>확대</span></button>
+          <div class="detail-popover" id="detailPopover" hidden role="region" aria-label="선택한 항목의 상세 내용">
+            <button id="detailClose" class="close-button" aria-label="상세 설명 닫기">×</button>
+            <div id="detailCategory" class="detail-category"></div>
+            <h3 id="detailTitle"></h3>
+            <div id="detailMetric" class="detail-metric" hidden></div>
+            <p id="detailBody"></p>
+            <div id="detailChart"></div>
+            <span class="detail-footnote" id="detailFootnote"></span>
+          </div>
+        </div>
+        <div class="stage-controls" aria-label="프레젠테이션 재생 및 이동">
+          <div class="prev-next-group">
+            <button id="prevButton" class="nav-button" aria-label="이전 슬라이드"><svg viewBox="0 0 24 24"><path d="m14 5-7 7 7 7M7 12h13"/></svg><span>이전</span></button>
+            <div class="number-indicator"><strong id="currentNumber">01</strong><span>/ 10</span></div>
+            <button id="nextButton" class="nav-button next-button"><span>다음 슬라이드</span><svg viewBox="0 0 24 24"><path d="m10 5 7 7-7 7M4 12h13"/></svg></button>
+          </div>
+          <div class="progress-center" id="progressDots" aria-label="슬라이드 진행 현황"></div>
+          <div class="utility-buttons"><button class="text-icon" id="notesSecondary" title="발표자 노트 및 출처 보기"><svg viewBox="0 0 24 24"><path d="M8 6h9M8 11h9M8 16h5M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/></svg><span>자료 보기</span></button><button class="text-icon" id="fullscreenButton" title="슬라이드 전체 화면 (F)"><svg viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg><span>전체 화면</span></button></div>
+        </div>
+      </section>
+      <section class="reading-grid" id="readingGrid" aria-label="슬라이드 요약 및 정보">
+        <div class="reading-content">
+          <div class="reading-label"><span class="reading-kicker" id="readingKicker">SLIDE 01</span><span class="reading-pill" id="readingPill">원본 정보</span></div>
+          <h1 id="readingTitle">천안, 일상이 웰니스가 되는 도시</h1>
+          <p id="readingIntro" class="reading-intro">건강한 움직임 · 자연 속 회복 · 함께 누리는 문화</p>
+          <div class="digest-cards" id="digestCards"></div>
+        </div>
+        <aside class="reading-aside">
+          <div class="aside-card">
+            <div class="aside-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg></div>
+            <span class="aside-eyebrow">ABOUT THIS PRESENTATION</span>
+            <h2>원본 슬라이드 그대로,<br>필요한 정보는 더 자세히.</h2>
+            <p>10장의 원본 이미지와 텍스트, 발표자 노트 및 출처를 담았습니다. 자료는 2026년 10월 30일 기준이며, 잠정 통계와 전략 제안은 확정 실적과 구분합니다.</p>
+            <button id="asideNotes" class="aside-link">발표자 노트 및 원문 확인 <span aria-hidden="true">↗</span></button>
+          </div>
+          <div class="keyboard-help"><span class="kbd-label">QUICK CONTROLS</span><span><kbd>←</kbd> <kbd>→</kbd> 슬라이드 이동</span><span><kbd>O</kbd> 전체 보기</span><span><kbd>F</kbd> 전체 화면</span></div>
+        </aside>
+      </section>
+    </div>
+    <footer class="page-footer"><span>CHEONAN <span class="footer-sparkle">✳</span> WELLNESS 2026</span><span>원본 기반 웹 변환 · 외부 서버/라이브러리 없음</span><button id="backToTop">처음으로 돌아가기 ↑</button></footer>
+  </main>
+  <div class="modal-backdrop" id="overviewDialog" role="dialog" aria-modal="true" aria-labelledby="overviewTitle" hidden>
+    <div class="overview-surface">
+      <div class="dialog-top"><div><span class="modal-kicker">SLIDE INDEX</span><h2 id="overviewTitle">전체 슬라이드</h2><p>원하는 장을 선택하면 바로 이동합니다.</p></div><button class="dialog-close" data-close="overviewDialog" aria-label="전체 슬라이드 창 닫기">×</button></div>
+      <div class="overview-grid" id="overviewGrid"></div>
+    </div>
+  </div>
+  <div class="modal-backdrop notes-backdrop" id="notesDialog" role="dialog" aria-modal="true" aria-labelledby="notesTitle" hidden>
+    <div class="notes-surface">
+      <div class="dialog-top"><div><span class="modal-kicker" id="notesSlideNum">SLIDE 01 / 10</span><h2 id="notesTitle">발표 자료 · 출처</h2><p id="notesSubtitle">원본 PPTX의 발표자 노트와 출처를 제공합니다.</p></div><button class="dialog-close" data-close="notesDialog" aria-label="발표 자료 창 닫기">×</button></div>
+      <div class="tab-bar" role="tablist" aria-label="원본 자료 보기"><button class="tab-button active" data-tab="notes" role="tab" aria-selected="true">발표자 노트</button><button class="tab-button" data-tab="text" role="tab" aria-selected="false">슬라이드 원문</button><button class="tab-button" data-tab="sources" role="tab" aria-selected="false">근거 · 출처 <span id="sourcesCount"></span></button></div>
+      <div class="notes-tab-body" id="notesTabBody" role="tabpanel"></div>
+      <div class="notes-bottom"><span>원본 자료 기준일: 2026.10.30</span><div><button id="notesPrev" class="notes-step">← 이전 장</button><button id="notesNext" class="notes-step">다음 장 →</button></div></div>
+    </div>
+  </div>
+  <div class="modal-backdrop zoom-backdrop" id="zoomDialog" role="dialog" aria-modal="true" aria-label="확대된 슬라이드" hidden>
+    <div class="zoom-header"><div><strong id="zoomTitle">슬라이드 확대</strong><small>드래그하여 이동 · +/- 확대/축소 · Esc 닫기</small></div><div class="zoom-tools"><button id="zoomOut" aria-label="축소">−</button><span id="zoomLevel">100%</span><button id="zoomIn" aria-label="확대">+</button><button id="zoomReset" aria-label="배율 초기화">초기화</button><button class="zoom-close" data-close="zoomDialog" aria-label="확대 창 닫기">×</button></div></div>
+    <div class="zoom-area" id="zoomArea"><img id="zoomImage" src="assets/slide-01.webp" alt="확대 슬라이드" draggable="false"></div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 </body>
 </html>
